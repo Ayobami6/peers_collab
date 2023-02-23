@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+{% load socialaccount %}
+
+
+{% block content %}
+
+<div class="container text-dark mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-grey p-3">
+            <form class="form-signin" method="post"> {% csrf_token %}
+                <h1 class="h3 mb-3">Please sign in</h1>
+                <label for="InputEmail" class="sr-only">Email</label>
+                <input type="InputEmail" id="InputEmail" class="form-control" placeholder="Email address" required
+                    autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <p>or sign in with</p>
+                <a href="{% provider_login_url 'github' %}" class="btn btn btn-danger btn-lg btn-block" role="button"
+                    aria-pressed="true">Sign in with Github</a>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
