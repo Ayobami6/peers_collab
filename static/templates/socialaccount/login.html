@@ -1,0 +1,7 @@
+{% extends 'template.html' %} {% load socialaccount %} {% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Continue</button>
+</form>
+{% endblock %}

@@ -2,13 +2,18 @@
 {% load socialaccount %}
 
 {% block content %}
+<h1>WELCOME BACK</h1>
+<h2 style="size: 50px;">😃</h2>
 
-<form method="post">
+<h4>Sign In To Peers</h4>
+
+<form method="post" class="sign-in-form">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" class="btn btn-secondary">
 </form>
 <p>or sign in with</p>
-<a href="{% provider_login_url 'github' %}" class="btn btn btn-danger btn-lg btn-block" role="button"
-    aria-pressed="true">Sign in with Github</a>
+<a style="font-size: 35px" href="{% provider_login_url 'github' %}" class="fa-icon">
+    <i class="fa-brands fa-github"></i>
+</a>
 {% endblock %}
