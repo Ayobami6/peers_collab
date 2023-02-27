@@ -11,11 +11,12 @@ api_key = os.getenv("OPENAI_KEY")
 
 
 def ask_gpt(request):
+    #
     if request.method == "POST":
         openai.api_key = api_key
         user_query = request.POST.get('user_query')
         user_prompt = user_query
-        response = openai.Completion.create(
+        chat_response = openai.Completion.create(
             model="text-davinci-003",
             prompt="You are an AI assisstant that is an Expert in Software engineering\nYou know about Software Engineering\nYou can provide advice on Linux, Programming Languages, Software Engineering Concepts and Education\n\nIf you are unable to provide an answer to a question please respond with the phrase \"I'm just an expert in Software engineering, can't help with that\n\n " + "\n" + user_prompt,
             temperature=0.7,
@@ -24,5 +25,5 @@ def ask_gpt(request):
             frequency_penalty=0.73,
             presence_penalty=0
         )
-        gpt_response = response['choices'][0]['text'].replace("?", "")
-    return render(request, 'ask/ask.html', {'response': gpt_response})
+        new_response = chat_response['choices'][0]['text'].replace("?", "")
+    return render(request, 'ask/ask.html', {'response': new_response})

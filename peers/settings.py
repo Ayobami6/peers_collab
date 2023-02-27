@@ -159,14 +159,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/home'
-
-# Google
-# 83544499212-cnjd8ss670kuim5f9q8rdr74jcvcuoip.apps.googleusercontent.com
-# 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
-
-# Twitter
-# OGg1YzhFelc3Z0NIV0tZRmI5TFM6MTpjaQ
-# uH0QSGZf6qdb5ha-7ual6uUj7L-vNe_GafS53hs5lj_a3U71m3
-
-# Api key: LyhpOv21JNVEPfID7z4D0Vlf86Y9V174H3wIoGv9dSrAEgdtfc
-# Api secret: NR1ONuD5aD8YKxjR1LSIlLr0PpfCy7WJywW3QvdKJ8GXBAsF2Z
