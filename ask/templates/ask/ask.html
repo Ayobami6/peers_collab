@@ -1,0 +1,10 @@
+{% extends "template.html" %} {% block content %}
+
+<h3>Ask GPT</h3>
+<form method="post">
+	{% csrf_token %}
+	<input type="text" name="user_query" class="form-control" />
+	<button type="submit" class="btn btn-primary mt-3">Ask</button>
+</form>
+<div>{{ response|safe }}</div>
+{% endblock %}

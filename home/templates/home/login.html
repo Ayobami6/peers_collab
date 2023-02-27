@@ -1,28 +1,42 @@
-{% extends 'template.html' %}
-{% load socialaccount %}
-
-{% block content %}
+{% extends 'template.html' %} {% load socialaccount %} {% block content %}
 <div class="box-shadow" id="sign-box">
     <h1>WELCOME BACK</h1>
-    <h2 style="size: 50px;">😃</h2>
+    <h2 style="size: 50px">😃</h2>
 
     <h4>Sign In To Peers</h4>
 
     <form method="post" class="sign-in-form">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class="btn btn-secondary">
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" class="btn btn-secondary" />
     </form>
     <div class="checkbox mb-3">
         <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me" /> Remember me
         </label>
     </div>
     <p>or sign in with</p>
-    <a style="font-size: 35px" href="{% provider_login_url 'github' %}" class="fa-icon">
+    <a
+        style="font-size: 35px"
+        href="{% provider_login_url 'github' %}"
+        class="fa-icon"
+    >
         <i class="fa-brands fa-github"></i>
     </a>
+    <a
+        style="font-size: 35px"
+        href="{% provider_login_url 'google' %}"
+        class="fa-icon"
+    >
+        <i class="fa-brands fa-google"></i>
+    </a>
+    <a
+        style="font-size: 35px"
+        href="{% provider_login_url 'twitter' %}"
+        class="fa-icon"
+    >
+        <i class="fa-brands fa-twitter"></i>
+    </a>
 
-    <p>New to Peers<a href="{% url 'signup' %}"> Sign up</a></p>
+    <p>New to Peers?<a href="{% url 'signup' %}"> Sign up</a></p>
 </div>
 {% endblock %}
