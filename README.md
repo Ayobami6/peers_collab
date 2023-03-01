@@ -138,6 +138,10 @@ create an Issue [here](https://github.com/Ayobami6/peers/issues)
 
 </details>
 
+### Keep Your Fork up to date
+
+You can automatically keep your fork up to date by using [pull](https://github.com/wei/pull) by [@wei](https://github.com/wei/)
+
 ## Contributors
 
 <a href="https://github.com/Ayobami6/peers/graphs/contributors">
