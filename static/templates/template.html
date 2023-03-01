@@ -9,6 +9,7 @@
     <title>Peers</title>
     <!-- Css style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" width="30" height="20" href="{% static 'assets/new-peers.ico' %}" type="image/x-icon">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/df6169861f.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/df6169861f.css" crossorigin="anonymous"> -->
@@ -17,10 +18,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-dark">
+    <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" />
+                <img src="{% static 'assets/new-peers.png' %}" alt="" width="30" height="24" />
+                Peers
             </a>
         </div>
         <div class="ml-auto">
