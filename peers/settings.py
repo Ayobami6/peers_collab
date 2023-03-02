@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -26,7 +25,10 @@ SECRET_KEY = 'django-insecure-361ualw16o4hzw#v81lymv=zlx&ib&j)sjuz))al@hgj!0ya-9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
 
@@ -70,12 +72,12 @@ ROOT_URLCONF = 'peers.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
+        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
+        'DIRS'    : [
             BASE_DIR / 'static/templates',
         ],
         'APP_DIRS': True,
-        'OPTIONS': {
+        'OPTIONS' : {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -85,7 +87,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -97,21 +98,27 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = 'peers.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'peers',
-        'USER': 'peers_admins',
-        'PASSWORD': os.environ["db_password"],
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME'  : 'peers_db_sqlite3',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE'  : 'django.db.backends.postgresql',
+            'NAME'    : 'peers',
+            'USER'    : 'peers_admins',
+            'PASSWORD': os.environ["db_password"],
+            'HOST'    : '127.0.0.1',
+            'PORT'    : '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -130,7 +137,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

@@ -1,0 +1,39 @@
+
+.form-container {
+  display: flex;
+  max-width: 600px;
+  min-width: 350px;
+  height: 600px;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow:0 1px 5px black;
+  margin: 0 auto;
+
+  form {
+    background-color: aqua;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cce1da;
+    gap:.5rem;
+
+
+    .form-group {
+      width: 300px;
+      line-height: .5rem;
+
+      input:last-child{
+        border: 1px solid black;
+      }
+    }
+
+    .signup
+    {
+      align-self: center;
+    }
+  }
+}
