@@ -1,8 +1,9 @@
 .form-container {
+  margin-top: 1rem !important;
   display: flex;
   max-width: 600px;
   min-width: 350px;
-  height: 600px;
+  height: 650px;
   justify-content: center;
   overflow: hidden;
   border-radius: 10px;
@@ -20,6 +21,11 @@
   background-color: #cce1da;
   gap: 0.5rem;
 }
+.form-container form img {
+  width: 100px;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
 .form-container form .form-group {
   width: 300px;
   line-height: 0.5rem;
@@ -29,6 +35,7 @@
 }
 .form-container form .signup {
   align-self: center;
+  background-color: #1a4cfe;
 }
 
 /*# sourceMappingURL=signup.css.map */

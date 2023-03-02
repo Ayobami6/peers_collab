@@ -3,40 +3,43 @@
 
 {% block style_sheet_and_js %}
     <link rel="stylesheet" href="{% static 'css/signup.css' %}"/>
+    <script rel="script" type="application/javascript" src="{% static 'js/signup.js'%}" defer></script>
 {% endblock %}
 
 {% block content %}
     <div class="form-container">
-            <form method="post">
-                {% csrf_token %}
-                <!-- {{ form.as_p }} -->
-                <div class="form-group">
-                    <label for="{{ form.username.id_for_label }}">Username:</label>
-                    {{ form.username }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.password1.id_for_label }}">First Name:</label>
-                    {{ form.first_name }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.password2.id_for_label }}">Last Name:</label>
-                    {{ form.last_name }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.email.id_for_label }}">Email:</label>
-                    {{ form.email }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.password1.id_for_label }}">Password:</label>
-                    {{ form.password1 }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.password2.id_for_label }}">Re-type Password:</label>
-                    {{ form.password2 }}
-                </div>
-                <!-- <input type="Sign up" class="btn btn-secondary" name="Sign up"> -->
-                <button class="btn btn-secondary signup">Sign up</button>
-            </form>
+        <form method="post">
+
+            <img src="{% static 'assets/new-peers.png' %}">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">First Name:</label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Last Name:</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Re-type Password:</label>
+                {{ form.password2 }}
+            </div>
+            <!-- <input type="Sign up" class="btn btn-secondary" name="Sign up"> -->
+            <button class="btn btn-secondary signup">Sign up</button>
+        </form>
 
     </div>
 

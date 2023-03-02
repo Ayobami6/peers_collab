@@ -1,13 +1,14 @@
 
 .form-container {
+  margin-top:1rem !important;
   display: flex;
   max-width: 600px;
   min-width: 350px;
-  height: 600px;
+  height: 650px;
   justify-content: center;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow:0 1px 5px black;
+  box-shadow: 0 1px 5px black;
   margin: 0 auto;
 
   form {
@@ -19,21 +20,26 @@
     flex-direction: column;
     align-items: center;
     background-color: #cce1da;
-    gap:.5rem;
+    gap: .5rem;
 
+    img {
+      width: 100px;
+      object-fit:contain;
+      aspect-ratio: 1/1;
+    }
 
     .form-group {
       width: 300px;
       line-height: .5rem;
 
-      input:last-child{
+      input:last-child {
         border: 1px solid black;
       }
     }
 
-    .signup
-    {
+    .signup {
       align-self: center;
+      background-color: #1a4cfe;
     }
   }
 }
