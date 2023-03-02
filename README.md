@@ -77,12 +77,13 @@ Steps
 ```bash
 mkdir peers
 cd peers
+git clone <url> .
 ```
 
 - Create virtual environment for linux and MacOX
 
 ```bash
-python3 -m venv
+python3 -m venv venv
 ```
 
 - Activate venv
@@ -94,8 +95,8 @@ python3 -m venv
 for Windows
 
 ```bash
-> mkdir myproject
-> cd myproject
+> mkdir peers
+> cd peers
 > py -3 -m venv venv
 ```
 
