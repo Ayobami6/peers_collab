@@ -9,9 +9,11 @@ class CreateUserForm(UserCreationForm):
     last_name = forms.CharField(max_length=50, widget=forms.TextInput(
         attrs={'placeholder': 'Last Name', 'class': 'form-control'}))
     email = forms.EmailField(max_length=250, widget=forms.TextInput(
-        attrs={'placeholder': 'Email', 'class': 'form-control'}))
+        attrs={'placeholder': 'Email', 'class': 'form-control',
+               'pattern': '^[\w\d]([A-Za-z0-9._%+-]+)@\w+\.\w+'}))
     password1 = forms.CharField(max_length=250, widget=forms.PasswordInput(
-        attrs={'placeholder': 'Password', 'class': 'form-control'}))
+        attrs={'placeholder': 'Password', 'class': 'form-control',
+               'pattern':'^([^\s][\w]{7,})$'}))
     password2 = forms.CharField(max_length=250, widget=forms.PasswordInput(
         attrs={'placeholder': 'Retype Password', 'class': 'form-control'}))
 
