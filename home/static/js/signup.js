@@ -4,7 +4,7 @@ const signup_btn = document.getElementsByClassName("signup").item(0)
 
 signup_btn.setAttribute("disabled", "")
 pword_validator = e => {
-    const re = /^([^\s][\w]{8,})$/
+    const re = /^([^\s][\w]{7,})$/
     let arr = re.exec(e.target.value)
     if (arr == null) {
         e.target.style.borderColor = 'red';
@@ -15,6 +15,12 @@ pword_validator = e => {
         e.target.style.borderColor = '';
 
     }
+}
+
+email_validator = e => {
+    // Todo
+    const re = /^[\w\d]([\w\d\!\$\%\^&\*_\=\+}{'?-.]+)@\w+\.\w+/
+
 }
 
 password_inp.addEventListener('input', pword_validator)
