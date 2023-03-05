@@ -72,12 +72,12 @@ ROOT_URLCONF = 'peers.urls'
 
 TEMPLATES = [
     {
-        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
-        'DIRS'    : [
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
             BASE_DIR / 'static/templates',
         ],
         'APP_DIRS': True,
-        'OPTIONS' : {
+        'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -101,24 +101,16 @@ WSGI_APPLICATION = 'peers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME'  : 'peers_db_sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'peers',
+        'USER': 'peers_admins',
+        'PASSWORD': os.environ["db_password"],
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE'  : 'django.db.backends.postgresql',
-            'NAME'    : 'peers',
-            'USER'    : 'peers_admins',
-            'PASSWORD': os.environ["db_password"],
-            'HOST'    : '127.0.0.1',
-            'PORT'    : '5432',
-        }
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -1,17 +1,17 @@
 from django.shortcuts import render
 import openai
 import os
+from django.views.generic import TemplateView
 from dotenv import load_dotenv
+from . forms import AskForm
 
 load_dotenv()
-
-# Create your views here.
 
 api_key = os.getenv("OPENAI_KEY")
 
 
 def ask_gpt(request):
-    #
+    data = None
     if request.method == "POST":
         openai.api_key = api_key
         user_query = request.POST.get('user_query')
@@ -25,5 +25,5 @@ def ask_gpt(request):
             frequency_penalty=0.73,
             presence_penalty=0
         )
-        new_response = chat_response['choices'][0]['text'].replace("?", "")
-    return render(request, 'ask/ask.html', {'response': new_response})
+        data = chat_response['choices'][0]['text'].replace("?", "")
+    return render(request, 'ask/ask.html', {'response': data})

@@ -10,10 +10,10 @@ class CreateUserForm(UserCreationForm):
         attrs={'placeholder': 'Last Name', 'class': 'form-control'}))
     email = forms.EmailField(max_length=250, widget=forms.TextInput(
         attrs={'placeholder': 'Email', 'class': 'form-control',
-               'pattern': '^[\w\d]([A-Za-z0-9._%+-]+)@\w+\.\w+'}))
+               'pattern': '^[\\w\\d]([A-Za-z0-9._%+-]+)@\\w+\\.\\w+'}))
     password1 = forms.CharField(max_length=250, widget=forms.PasswordInput(
         attrs={'placeholder': 'Password', 'class': 'form-control',
-               'pattern':'^([^\s][\w]{7,})$'}))
+               'pattern': '^([^\\s][\\w]{7,})$'}))
     password2 = forms.CharField(max_length=250, widget=forms.PasswordInput(
         attrs={'placeholder': 'Retype Password', 'class': 'form-control'}))
 
@@ -30,10 +30,6 @@ class CreateUserForm(UserCreationForm):
                                                  'placeholder': 'Firstname'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control',
                                                 'placeholder': 'Lastname'}),
-            # 'password1': forms.PasswordInput(attrs={'class': 'form-control',
-            #                                         'placeholder': 'Password'}),
-            # 'password2': forms.PasswordInput(attrs={'class': 'form-control',
-            #                                         'placeholder': 'Password'})
         }
 
         labels = {
