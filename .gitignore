@@ -3,3 +3,4 @@
 *.idea/
 *__pycache__/
 *peers_db_sqlite3
+migrations
