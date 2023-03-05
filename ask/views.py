@@ -2,6 +2,8 @@ from django.shortcuts import render
 import openai
 import os
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from dotenv import load_dotenv
 from . forms import AskForm
 
@@ -10,6 +12,7 @@ load_dotenv()
 api_key = os.getenv("OPENAI_KEY")
 
 
+@login_required(login_url="/home/login")
 def ask_gpt(request):
     data = None
     if request.method == "POST":
