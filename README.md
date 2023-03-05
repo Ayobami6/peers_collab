@@ -139,6 +139,41 @@ create an Issue [here](https://github.com/Ayobami6/peers/issues)
 
 </details>
 
+## Database setup
+<details>
+<summary>
+Steps
+</summary>
+`By default django uses SQLite3 as it's defualt database`
+
+### Postgresql
+if you wish to use postgresql
+
+`ENGINE`:- The name of the engine that you want to use which is postgresql
+
+`NAME`:- The name of the database that you want to connect to. You are the one who usually knows that database name. `Add it here`
+
+`USER`:- Database user name who will be used to execute SQL queries on the databse. Sometimes this user has lesser database privilege for security reasons.
+
+`PASSWORD`:- Database user password
+
+`HOST`:- If you are using a remote database then paste the URL here. If the database is on your local computer then 'localhost' / '127.0.0.1' can be added here
+
+`PORT`:- Postgresql by default allows connections to port 5432. specify your port here
+</details>
+
+## Live Production
+When taking your project live on the internet, you need to do certain this;
+
+1. Generate a new `SECRET KEY`. On your shell with your virtual activated, do the following, then copy the rest and paste inside settings at `SECRET_KEY`
+
+```sh
+$ django-admin shell
+
+>>> from django.core.management.utils import get_random_secret_key  
+>>> get_random_secret_key()
+
+```
 ### Keep Your Fork up to date
 
 You can automatically keep your fork up to date by using [pull](https://github.com/wei/pull) by [@wei](https://github.com/wei/)
