@@ -1,5 +1,6 @@
 import pytest
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 def test_home_view(client):
