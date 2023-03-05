@@ -1,6 +1,8 @@
 *venv/
 *.env
 *.idea/
-*__pycache__/
+__pycache__
 *peers_db_sqlite3
+.pyc
 migrations
+db.sqlite3
