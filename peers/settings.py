@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     # my apps
     'home',
     'ask',
+    'posts',
+
+    # pip Installed apps
+    'ckeditor',
 
     'allauth',
     'allauth.account',
@@ -104,18 +108,27 @@ WSGI_APPLICATION = 'peers.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'peers',
+        'USER': 'peers_admins',
+        'PASSWORD': os.environ["db_password"],
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
-
+# Production database Postgresql
 # 'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'peers',
 #         'USER': 'peers_admins',
 #         'PASSWORD': os.environ["db_password"],
 #         'HOST': '127.0.0.1',
 #         'PORT': '5432',
+
+
+# Sqlite
+# 'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 Ps = 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
@@ -158,6 +171,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -9,6 +9,7 @@ def test_home_view(client):
 
 
 @pytest.mark.django_db
+# pytest decorator to communicate with django database
 def test_home_view_is_auth(client):
 
     user = User.objects.create_user('name', 'name@example.com', 'password')
