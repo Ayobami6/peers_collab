@@ -21,6 +21,7 @@ Peers features are;
 - Mentor: This is a feature where peers can register to mentor others on a particular concept they want to talk about and teach, when a mentor register to mentor, all members of peers gets notified of the new mentor session.
 - Ask gpt: This feature allows members of peers to ask chat gpt for advice on anything relating to software engineering alone, anything aside that gpt won't respond with what they expect.
 - Post: This features allows members to post questions, articles, react to posts and comments
+  and more.
 
 ## Contributing
 
@@ -51,7 +52,7 @@ git branch <branch name>
 
 - Add your changes
 
-- Create a pull request from your development branch
+- Create a pull request from your development branch to the upstream development branch
 
 - Not sure of changes to make?
 
@@ -113,6 +114,13 @@ pip install -r requirements.txt
 ```
 
 - Create `.env` file inside the root of peers to store your OpenAI Api
+  Or run
+
+```bash
+cp .env.example .env
+```
+
+then open the `.env` file to update your chatgpt api key
 
 - Requesting the Postgresql database admin
 
@@ -138,6 +146,36 @@ If you encouter an issue setting up
 create an Issue [here](https://github.com/Ayobami6/peers/issues)
 
 </details>
+
+## Project Tools
+
+- Python django
+- Boostrap
+- RDMS (Postgresql or Mysql or Sqlite)
+- Html and Css
+- FontAwesome Icons
+- Docker
+- Github Pages for development
+- Github Actions for CI
+- Github Projects for Project management
+- Github Discussions
+- Chatgpt Api
+- Pytest for unit testing
+- Pycodestyle for python code style
+
+## A beginner?
+
+Not a problem checkout resources listed to get you started
+
+- [Django-guide-pdf](https://drive.google.com/file/d/1untLdjlgNQJdKIM9RzpwLEgMOEwTQc3l/view?usp=share_link)
+- [Boostrap](https://www.freecodecamp.org/learn/front-end-development-libraries/)
+- [Html-Css](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
+
+## Development environmennt Code Linter and Formatter tools tools recommendations
+
+- Pycodestyle
+- Prettier Formatter
+- AutoPep8 Formatter
 
 ### Keep Your Fork up to date
 
