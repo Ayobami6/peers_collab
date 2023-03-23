@@ -3,6 +3,9 @@
 <h1>Welcome {{user.username}}</h1>
 {% if user.is_authenticated %} {% for post in posts %}
 <div>{{ post.content|safe }}</div>
+<small>
+	Posts by {{ post.author|safe }} created {{ post.created_at|timesince }} ago
+</small>
 {% endfor %} {% endif %}
 <p>Today is {{today}}</p>
 
