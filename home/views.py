@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django import forms
+from posts.models import Posts
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -40,6 +41,8 @@ class SignupView(CreateView):
 
 @method_decorator(login_required(login_url='/home/login'), name="get")
 class HomeView(TemplateView):
+    model = Posts
     template_name = 'home/welcome.html'
     # for extra content for the template literal
-    extra_context = {'today': datetime.today()}
+    posts = Posts.objects.all()
+    extra_context = {'today': datetime.today(), 'posts': posts}

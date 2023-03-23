@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-361ualw16o4hzw#v81lymv=zlx&ib&j)sjuz))al@hgj!0ya-9'
+SECRET_KEY = \
+    'django-insecure-361ualw16o4hzw#v81lymv=zlx&ib&j)sjuz))al@hgj!0ya-9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     # my apps
     'home',
     'ask',
+    'posts',
+
+    # pip Installed apps
+    'ckeditor',
 
     'allauth',
     'allauth.account',
@@ -103,30 +108,42 @@ WSGI_APPLICATION = 'peers.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'peers',
-        'USER': 'peers_admins',
-        'PASSWORD': os.environ["db_password"],
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
+# Production database Postgresql
+# 'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'peers',
+#         'USER': 'peers_admins',
+#         'PASSWORD': os.environ["db_password"],
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+
+
+# Sqlite
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': BASE_DIR / 'db.sqlite3',
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+Ps = 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': Ps,
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -150,6 +167,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
