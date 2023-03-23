@@ -62,11 +62,16 @@
             </div>
         </nav>
         <div class="container">{% block content %} {% endblock %}</div>
-        <footer class="footer-container">
-            <div class="container">
-                <h1>Peers</h1>
-            </div>
+        <footer
+            class="container-fluid fixed-bottom"
+            id="footer"
+            style="background-color: grey; height: 10%"
+        >
+            <div class="footer-content">Peers</div>
         </footer>
+        <!-- <div class="fixed-bottom">
+            <footer class="footer">Peers</footer>
+        </div> -->
     </body>
 
     <!-- Optional Js For bootstrap -->
