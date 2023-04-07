@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from . models import Posts
@@ -25,3 +25,21 @@ class PostListView(LoginRequiredMixin, ListView):
     # can pass template name if need be or not
     template_name = "posts/welcome.html"
     login_url = "/login"
+
+
+class PostDetailView(DetailView):
+    model = Posts
+    context_object_name = "posts"
+    template_name = 'posts/posts_detail.html'
+
+
+class PostsDeleteView(DeleteView):
+    model = Posts
+    success_url = 'home/posts'
+    template_name = 'posts/posts_delete.html'
+
+
+class PostUpdateView(UpdateView):
+    model = Posts
+    success_url = 'home/posts'
+    form_class = PostForm

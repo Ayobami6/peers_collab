@@ -18,6 +18,7 @@ class Posts(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts")
+    likes = models.ManyToManyField(User, related_name='blog_post')
 
     def __str__(self):
         return f"Post {self.id} by {self.author.username}"

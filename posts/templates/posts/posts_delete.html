@@ -1,0 +1,9 @@
+{% extends "template.html" %} {% block content %}
+<form method="posts">
+	{% csrf_token %}
+	<p>Are You Sure?</p>
+	<p>Press <strong>Confirm</strong> to delete {{ posts.title }}</p>
+	<input type="submit" name="btn btn-danger" value="Confirm" />
+</form>
+
+{% endblock %}

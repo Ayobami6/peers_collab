@@ -1,0 +1,12 @@
+{% extends "template.html" %} {% block content %}
+
+<div class="border round">
+	<h1 class="my-5">{{posts.title}}</h1>
+	<p class="text-dark">{{posts.content}}</p>
+</div>
+
+<a href="{% url 'post_list' %}" class="btn btn-secondary my-5">Back</a>
+<a href="{% url 'post_update' %}" class="btn btn-secondary my-5">Edit</a>
+<a href="{% url 'post_delete' %}" class="btn btn-secondary my-5">Delete</a>
+
+{% endblock %}
