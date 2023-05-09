@@ -12,4 +12,5 @@ urlpatterns = [
          name='post_delete'),
     path('home/posts/<int:pk>/edit',
          views.PostUpdateView.as_view(), name='post_update'),
+    path('home/like/<int:pk>', views.LikeView, name="like_post"),
 ]
