@@ -27,12 +27,21 @@ class PostListView(LoginRequiredMixin, ListView):
     # can pass template name if need be or not
     template_name = "posts/welcome.html"
     login_url = "/login"
+    # add ordering for created at
 
 
 class PostDetailView(DetailView):
     model = Posts
-    context_object_name = "posts"
+    context_object_name = "post"
     template_name = 'posts/posts_detail.html'
+
+    def get_context_data(self, *args, **kwargs):
+        # html template context
+        context = super().get_context_data(**kwargs)
+        post = get_object_or_404(Posts, id=self.kwargs['pk'])
+        total_likes = post.total_likes()
+        context['total_likes'] = total_likes
+        return context
 
 
 class PostsDeleteView(DeleteView):
@@ -45,9 +54,14 @@ class PostUpdateView(UpdateView):
     model = Posts
     success_url = 'home/posts'
     form_class = PostForm
+    template_name = "posts/create_post.html"
 
 
 def LikeView(request, pk):
-    post = get_object_or_404(Posts, id=request.POST.get('post_id'))
+    #     # post = get_object_or_404(Posts, pk=pk)
+    #     # post.likes += 1
+    #     # post.save()
+    #     # return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
+    post = get_object_or_404(Posts, id=request.POST.get('like'))
     post.likes.add(request.user)
-    return HttpResponseRedirect(reverse('posts_detail', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))

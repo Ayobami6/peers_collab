@@ -17,8 +17,11 @@ class Posts(models.Model):
     content = RichTextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="posts")
-    likes = models.ManyToManyField(User, related_name='blog_post')
+        User, on_delete=models.CASCADE, related_name="posts_authors")
+    likes = models.ManyToManyField(User, related_name='posts_likes')
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return f"Post {self.id} by {self.author.username}"
