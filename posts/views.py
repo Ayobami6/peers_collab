@@ -28,6 +28,7 @@ class PostListView(LoginRequiredMixin, ListView):
     template_name = "posts/welcome.html"
     login_url = "/login"
     # add ordering for created at
+    ordering = ['-created_at']
 
 
 class PostDetailView(DetailView):
@@ -40,7 +41,11 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         post = get_object_or_404(Posts, id=self.kwargs['pk'])
         total_likes = post.total_likes()
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
         context['total_likes'] = total_likes
+        context['liked'] = liked
         return context
 
 
@@ -58,10 +63,12 @@ class PostUpdateView(UpdateView):
 
 
 def LikeView(request, pk):
-    #     # post = get_object_or_404(Posts, pk=pk)
-    #     # post.likes += 1
-    #     # post.save()
-    #     # return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
     post = get_object_or_404(Posts, id=request.POST.get('like'))
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))

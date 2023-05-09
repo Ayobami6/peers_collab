@@ -5,7 +5,17 @@
 	<p class="text-dark">{{post.content|safe}}</p>
 </div>
 <form action="{% url 'like_post' pk=post.pk %}" method="POST">
-	{% csrf_token %}
+	{% csrf_token %} {% if liked %}
+	<button
+		type="submit"
+		,
+		name="like"
+		value="{{ post.id }}"
+		,
+		class="btn btn-danger btn-sm">
+		Unlike
+	</button>
+	{% else %}
 	<button
 		type="submit"
 		,
@@ -15,7 +25,7 @@
 		class="btn btn-primary btn-sm">
 		Like
 	</button>
-	- {{ total_likes }} likes
+	{% endif %} - {{ total_likes }} likes
 </form>
 
 <a href="{% url 'post_list' %}" class="btn btn-secondary my-5">Back</a>
