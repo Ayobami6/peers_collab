@@ -13,7 +13,7 @@
 		value="{{ post.id }}"
 		,
 		class="btn btn-danger btn-sm">
-		Unlike
+		<i class="bi bi-heart-fill"></i>
 	</button>
 	{% else %}
 	<button
@@ -23,7 +23,7 @@
 		value="{{ post.id }}"
 		,
 		class="btn btn-primary btn-sm">
-		Like
+		<i class="bi bi-heart-fill"></i>
 	</button>
 	{% endif %} - {{ total_likes }} likes
 </form>
