@@ -1,25 +1,23 @@
-name: Docker Image CI
+name: Docker Build and Push
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-
-  build:
-
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image and Push
-      run: |
-        echo "${{ secrets.DOCKERPSWD }}" | docker login -u "ayobami6" --password-stdin
-        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-        docker push ayobami6/peers_dev_container:v1
-       
-        
-        
-        
+    - uses: actions/checkout@v2
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/peers_dev:latest
