@@ -1,26 +1,20 @@
 {% extends 'template.html' %} {% load socialaccount %} {% block content %}
-<div class="box-shadow" id="sign-box">
+<div id="sign-box">
     <h4>WELCOME BACK</h4>
     <h2 style="size: 50px">😃</h2>
 
     <h4>Sign In To Peers</h4>
+    <a class="auth-btn" style="font-size: 35px; width: 100%; height: 15%;" href="{% provider_login_url 'github' %}" class="fa-icon">
+        <button class="btn btn-primary btn-xxl">
+            <i class="fa-brands fa-github px-2 py-1"></i> Continue with Github
+        </button>
+    </a>
+    <a class="auth-btn" style="font-size: 35px; width: 100%; height: 15%;" href="{% provider_login_url 'google' %}" class="fa-icon">
+        <button class="btn btn-primary btn-xxl"> <i class="fa-brands fa-google px-2 py-1"></i> Continue with Google</button>
+    </a>
 
-    <form method="post" class="sign-in-form">
-        {% csrf_token %} {{form.as_p}}
-        <input type="submit" class="btn btn-secondary" />
-    </form>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-        </label>
-    </div>
     <p>or sign in with</p>
-    <a style="font-size: 35px" href="{% provider_login_url 'github' %}" class="fa-icon">
-        <i class="fa-brands fa-github"></i>
-    </a>
-    <a style="font-size: 35px" href="{% provider_login_url 'google' %}" class="fa-icon">
-        <i class="fa-brands fa-google"></i>
-    </a>
+    
     <a style="font-size: 35px" href="{% provider_login_url 'twitter' %}" class="fa-icon">
         <i class="fa-brands fa-twitter"></i>
     </a>
